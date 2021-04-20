@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="AS d’Urso" />
-  <meta name="dcterms.date" content="2021-04-19" />
+  <meta name="dcterms.date" content="2021-04-20" />
   <title>Introduction to Map Functions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -519,7 +519,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Introduction to Map Functions</h1>
     <h2 class="author">AS d’Urso</h2>
-    <h3 class="date"><small>2021-04-19</small></h3>
+    <h3 class="date"><small>2021-04-20</small></h3>
 </section>
 
 <section id="introduction" class="title-slide slide level1">
@@ -560,14 +560,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(char_vec)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span></code></pre></div>
 <ul>
-<li class="fragment">But what if we mix the type of data in a vector?</li>
+<li class="fragment">But what if we include two different classes in one atomic vector?</li>
 </ul>
 </section>
 <section id="homogeneous-1" class="slide level2">
 <h2>Homogeneous</h2>
-<p>Mixing types of data yeild coercive results.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">2</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span></code></pre></div>
+<p>Mixing types of data yield coercive results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;a&quot; &quot;1&quot; &quot;b&quot; &quot;2&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">2</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span></code></pre></div>
 <ul>
 <li class="fragment">The vector is stored as a character vector</li>
 <li class="fragment">… <em>but why?</em></li>
@@ -666,9 +668,6 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [[3]]</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3</span></span></code></pre></div>
-<ul>
-<li class="fragment"><em>Practice: Try making a few lists of your own.</em></li>
-</ul>
 </section>
 <section id="lists-1" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out">Lists</h2>
@@ -693,12 +692,18 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <aside class="notes">
 As you can see with this example, we can have different data classes and different lengths
 </aside>
+<ul>
+<li class="fragment"><em>Practice: Try making a few lists of your own.</em></li>
+</ul>
 </section>
 <section id="lists-structure" class="slide level2">
 <h2>Lists Structure</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="st">&quot;a string&quot;</span>, <span class="at">c =</span> pi, <span class="at">d =</span> <span class="fu">list</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>list_practice <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">b =</span> <span class="st">&quot;a string&quot;</span>, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> pi, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">d =</span> <span class="fu">list</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>))</span></code></pre></div>
 <center>
-<img data-src="Figures/a.png" alt="a" />
+<img data-src="Figures/a.png" width="300" alt="a" />
 </center>
 </section>
 <section id="indexing-lists" class="slide level2">
@@ -712,12 +717,12 @@ As you can see with this example, we can have different data classes and differe
 <section id="single-bracket" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out">Single bracket</h2>
 <p>Extracts a sub-list</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(a[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_practice[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
 </section>
 <section id="single-bracket-1" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in">Single bracket</h2>
 <p>Extracts a sub-list</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(a[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_practice[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="do">## List of 2</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ a: int [1:3] 1 2 3</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ b: chr &quot;a string&quot;</span></span></code></pre></div>
@@ -728,12 +733,12 @@ As you can see with this example, we can have different data classes and differe
 <section id="double-bracket" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out">Double bracket</h2>
 <p>Extracts component from list</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(a[[<span class="dv">1</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_practice[[<span class="dv">1</span>]])</span></code></pre></div>
 </section>
 <section id="double-bracket-1" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in">Double bracket</h2>
 <p>Extracts component from list</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(a[[<span class="dv">1</span>]])</span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_practice[[<span class="dv">1</span>]])</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  int [1:3] 1 2 3</span></span></code></pre></div>
 <ul>
 <li class="fragment">It removes a level of hierarchy</li>
@@ -742,21 +747,21 @@ As you can see with this example, we can have different data classes and differe
 <section id="named-element" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out">Named element</h2>
 <p>It works similarly to <code>[[]]</code>, but you must use the name of the element you are interested in (without quotation marks)</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span>b</span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>list_practice<span class="sc">$</span>b</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;a string&quot;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>a[[<span class="st">&quot;b&quot;</span>]]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>list_practice[[<span class="st">&quot;b&quot;</span>]]</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;a string&quot;</span></span></code></pre></div>
 </section>
 <section id="practice-5" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out">Practice</h2>
-<p>In our list, <code>a</code>, how would we subset to the first element in <code>d</code>?</p>
+<p>In our list, <code>list_practice</code>, how would we subset to the first element in <code>d</code>?</p>
 </section>
 <section id="practice-6" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in">Practice</h2>
-<p>In our list, <code>a</code>, how would we subset to the first element in <code>d</code>?</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span>d[[<span class="dv">1</span>]]</span>
+<p>In our list, <code>list_practice</code>, how would we subset to the first element in <code>d</code>?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>list_practice<span class="sc">$</span>d[[<span class="dv">1</span>]]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -1</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>a[[<span class="dv">4</span>]][[<span class="dv">1</span>]]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>list_practice[[<span class="dv">4</span>]][[<span class="dv">1</span>]]</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -1</span></span></code></pre></div>
 </section>
 <section id="indexing-lists-1" class="slide level2">
@@ -858,7 +863,10 @@ As you can see with this example, we can have different data classes and differe
 <li>Add two to each number</li>
 </ol>
 <p>Put last number in <code>$c</code> in the chat</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>map_practice <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="dv">1902</span>, <span class="dv">1788</span>, <span class="dv">892</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>map_practice <span class="ot">&lt;-</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">c =</span> <span class="fu">c</span>(<span class="dv">1902</span>, <span class="dv">1788</span>, <span class="dv">892</span>))</span></code></pre></div>
 </section>
 <section id="practice-8" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in">Practice</h2>
@@ -868,29 +876,33 @@ As you can see with this example, we can have different data classes and differe
 <li>Add two to each number</li>
 </ol>
 <p>Put last number in <code>$c</code> in the chat</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>map_practice <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="dv">1902</span>, <span class="dv">1788</span>, <span class="dv">892</span>))</span>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>map_practice2 <span class="ot">&lt;-</span> <span class="fu">map</span>(map_practice, sqrt)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>map_practice2 <span class="ot">&lt;-</span> <span class="fu">map</span>(map_practice, sqrt)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(map_practice2, <span class="sc">~</span>.<span class="sc">+</span><span class="dv">2</span>)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.000000 3.414214 3.732051 4.000000</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.236068 4.645751 4.828427</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45.61192 44.28475 31.86637</span></span></code></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(map_practice2, <span class="sc">~</span>.<span class="sc">+</span><span class="dv">2</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.000000 3.414214 3.732051 4.000000</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.236068 4.645751 4.828427</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45.61192 44.28475 31.86637</span></span></code></pre></div>
 </section>
 <section id="map_if" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out"><code>map_if</code></h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>map_practice3 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>map_practice3 <span class="ot">&lt;-</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>))</span></code></pre></div>
 </section>
 <section id="map_if-1" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in"><code>map_if</code></h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>map_practice3 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>))</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>(map_int <span class="ot">&lt;-</span> <span class="fu">map_if</span>(map_practice3, is.character, as.numeric))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>map_practice3 <span class="ot">&lt;-</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>))</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>(map_int <span class="ot">&lt;-</span> <span class="fu">map_if</span>(map_practice3, is.character, as.numeric))</span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3 4
 ## 
@@ -902,35 +914,43 @@ As you can see with this example, we can have different data classes and differe
 </section>
 <section id="map_at" class="slide level2" data-transition="none-out">
 <h2 data-transition="none-out"><code>map_at</code></h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(map_practice4 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>), <span class="at">d =</span> <span class="fu">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;buscuit&quot;</span>)))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3 4</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 7 8</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;1902&quot; &quot;1788&quot; &quot;892&quot; </span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="do">## $d</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;cheese&quot;  &quot;bread&quot;   &quot;tomato&quot;  &quot;buscuit&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(map_practice4 <span class="ot">&lt;-</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>), </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">d =</span> <span class="fu">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;buscuit&quot;</span>)))</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3 4</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 7 8</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;1902&quot; &quot;1788&quot; &quot;892&quot; </span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="do">## $d</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;cheese&quot;  &quot;bread&quot;   &quot;tomato&quot;  &quot;buscuit&quot;</span></span></code></pre></div>
 </section>
 <section id="map_at-1" class="slide level2" data-transition="none-in">
 <h2 data-transition="none-in"><code>map_at</code></h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>map_practice4 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>), <span class="at">d =</span> <span class="fu">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;buscuit&quot;</span>))</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map_at</span>(map_practice4, <span class="st">&quot;c&quot;</span>, as.numeric)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3 4</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 7 8</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1902 1788  892</span></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="do">## $d</span></span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;cheese&quot;  &quot;bread&quot;   &quot;tomato&quot;  &quot;buscuit&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>map_practice4 <span class="ot">&lt;-</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>), </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">c =</span> <span class="fu">c</span>(<span class="st">&quot;1902&quot;</span>, <span class="st">&quot;1788&quot;</span>, <span class="st">&quot;892&quot;</span>), </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">d =</span> <span class="fu">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;buscuit&quot;</span>))</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">map_at</span>(map_practice4, <span class="st">&quot;c&quot;</span>, as.numeric)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="do">## $a</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3 4</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="do">## $b</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 7 8</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="do">## $c</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1902 1788  892</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="do">## $d</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;cheese&quot;  &quot;bread&quot;   &quot;tomato&quot;  &quot;buscuit&quot;</span></span></code></pre></div>
 </section>
 <section id="map2" class="slide level2">
 <h2><code>map2</code></h2>
